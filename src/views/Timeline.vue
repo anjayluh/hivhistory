@@ -58,11 +58,6 @@
       <div class="graph margin-auto">
         <v-img :src="graph" alt="graph"></v-img>
       </div>
-      <div class="footer">
-        <v-icon>remove</v-icon>
-        <v-icon>remove</v-icon>
-        <v-icon>arrow_forward</v-icon>
-      </div>
     </div>
 </template>
 <script>
