@@ -1,0 +1,117 @@
+@font-face {
+    font-family: "Crimson Text";
+    src: url("../fonts/Crimson_Text/CrimsonText-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Crimson Text";
+    src: url("../fonts/Crimson_Text/CrimsonText-SemiBold.ttf") format("truetype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Crimson Text";
+    src: url("../fonts/Crimson_Text/CrimsonText-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Libre Franklin";
+    src: url("../fonts/Libre_Franklin/LibreFranklin-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Libre Franklin";
+    src: url("../fonts/Libre_Franklin/LibreFranklin-ExtraBold.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Libre Franklin";
+    src: url("../fonts/Libre_Franklin/LibreFranklin-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Libre Franklin";
+    src: url("../fonts/Libre_Franklin/LibreFranklin-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+html {
+    overflow: hidden !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+body {
+    background-color: #e7e7e7;
+    font-family: "Libre Franklin";
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav-menu {
+    padding: 31px 35px;
+    list-style: none;
+    font-weight: 500;
+}
+
+.nav-menu li:not(.active) a {
+    color: #000000;
+}
+
+.nav-menu li.active a {
+    color: #b5072c;
+}
+
+.nav-menu li a:hover {
+    text-decoration: none;
+}
+
+.main-logo {
+    margin-top: -14px;
+}
+
+.right {
+    margin-left: auto;
+}
+
+.nav-menu .main-items {
+    width: 60%;
+    margin-top: 8px;
+    margin-left: 42px;
+}
+
+.nav-menu .main-items li {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.contact {
+    margin-top: 8px;
+}
+
+.nav-menu i.v-icon {
+    font-size: 19px;
+    color: #000000;
+}
