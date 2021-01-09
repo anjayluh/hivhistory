@@ -3,10 +3,8 @@ import vuetify from "@/plugins/vuetify" // path to vuetify export
 import App from './App.vue'
 import router from './router'
 import './utils/imports'
-import { emataRequest } from './utils/constants'
 
 
-Vue.prototype.$emataRequest = emataRequest
 
 new Vue({
     router,
