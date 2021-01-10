@@ -157,6 +157,17 @@ main .main-content {
     font-weight: 600;
 }
 
+.card-header-text {
+    font-weight: 700;
+    font-size: 32px;
+    color: black;
+    text-transform: none;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
 .highlight {
     width: 10%;
 }
@@ -240,4 +251,24 @@ h2 {
 
 footer {
     margin-left: 210px;
+}
+
+.mini-card {
+    min-width: 335px;
+    min-height: 450px;
+}
+
+.v-sheet.v-card {
+    border-radius: 22px;
+    background-color: #CECECE;
+    position: relative;
+}
+
+.v-card__text {
+    position: absolute;
+    top: 43%;
+}
+
+.content-card .col-md-4 {
+    padding-left: 5px;
 }

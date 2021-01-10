@@ -1,89 +1,141 @@
 <template>
-    <div class="page-content">
-      <div class="row wrapper border-bottom white-bg page-heading" v-if="$route.name === 'contacts'">
-      </div>
-      <div class="wrapper wrapper-content list contacts" v-if="$route.name === 'contacts'">
-          <v-card flat class="mb-5 table">
-              <v-data-table :headers="headers" :items="allItems" sort-by="name"
-                            class="elevation-1 hover-table" :items-per-page="10"
-                            :loading="loadTable" loading-text="Loading... Please wait"
-                            hide-default-footer @click:row="handleRowClick">
-                  <template v-slot:item.name="{ item }">
-                      <span>
-                          {{getFullName( item.firstName, item.middleName, item.lastName)}}
-                      </span>
-                  </template>
-                  <template v-slot:item.phones="{ item }">
-                      <span v-if="item.phones.length > 0">
-                          <span v-if="item.phones[0].number === null || item.phones[0].number === ''">
-                              -
-                          </span>
-                          <span v-else>
-                            {{arrangePhoneNumber(getPhoneNumber(item.phones, "Primary"))}}
-                          </span>
-                      </span>
-                      <span v-else> - </span>
-                  </template>
-                  <template v-slot:item.cooperative="{ item }">
-                      <span v-if="item.cooperative">
-                        {{item.cooperative.name}}
-                      </span>
-                      <span v-else>-</span>
-                  </template>
-                  <template v-if="loadTable" v-slot:progress>
-                      <v-progress-linear :height="10" indeterminate class="table-loader">
-                      </v-progress-linear>
-                  </template>
-                  <template v-slot:no-data>
-                      <span v-if="filter.name || filter.selectedCooperative || filter.selectedBranch">
-                          <p class="mt-3">No matching records found</p>
-                      </span>
-                      <span v-else>
-                          <p class="mt-3">No contacts found</p>
-                      </span>
-                  </template>
-                  <template v-slot:footer>
-                      <v-divider class="mt-0"></v-divider>
-                      <v-row class="table-footer" no-gutters>
-                      </v-row>
-                  </template>
-              </v-data-table>
-          </v-card>
-          <v-card flat class="mb-5 filter">
-            <h5 class="filter-title col-sm-12">
-              Filter
-            </h5>
-            <div class="filter-form col-lg-12 col-md-12 col-sm-12">
-              <v-form role="form">
-                <v-flex xs12 sm12 md12 mb-3>
-                    <v-text-field v-model="filter.name" outlined label="Name"  autocomplete="off" @keyup.enter="handleFilter">
-                    </v-text-field>
-                </v-flex>
-                <v-flex xs12 sm12 md12 mb-3>
-                  <v-select class="" outlined flat label="Cooperative" :items="fetchedCooperatives"
-                            v-model="filter.selectedCooperative" item-text="name" item-value="id"
-                            append-icon="$vuetify.icons.dropdowndown" :loading="loadCoopsSpinner">
-                </v-select>
-                </v-flex>
-                  <v-flex xs12 sm12 md12 mb-3>
-                    <v-select class="" outlined flat label="Branch" :items="fetchedBranches"
-                              v-model="filter.selectedBranch" item-text="name" item-value="id"
-                              persistent-hint hint="Select the branch that the farmer belongs to"
-                              append-icon="$vuetify.icons.dropdowndown"
-                              :disabled="!filter.selectedCooperative || filter.selectedCooperative === 'All'"
-                              :loading="loadBranchesSpinner">
-                    </v-select>
-                </v-flex>
-                  <v-flex xs12 sm12 md12 text-right>
-                      <v-btn depressed right small class="table-btn" @click="handleFilter">
-                      Apply
-                  </v-btn>
-                  </v-flex>
-              </v-form>
-            </div>
-          </v-card>
-      </div>
-    </div>
+  <div class="page-content">
+    <main>
+      <div class="previous"></div>
+      <section class="main-content flex-column">
+        <div class="flex-row top-row">
+          <div class="highlight mr-3">
+            <div class="maximize"></div>
+          </div>
+          <div class="description">
+            <h1>
+              Chapters.
+            </h1>
+            <h6 class="uppercase error">All Chapters</h6>
+            <p>
+              Ut wisi enim and minim veniam, quis nostrud exerci tation
+              ullamcorper suscript lobortis nisl ut a liquip ex ea commodo
+              consequat. Duis autem vel eum iriure dolor i
+            </p>
+          </div>
+        </div>
+        <div class="center-piece">
+          <v-row no-gutters class="mb-5">
+            <v-flex xs12 lg12 class="today-wrapper">
+              <v-container class="pa-1" fluid>
+                <v-row class="content-card">
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="card-header-text">
+                          Unknown.
+                        </div>
+                        <h6 class="uppercase error">Chapter I</h6>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="card-header-text">
+                          Knowing.
+                        </div>
+                        <h6 class="uppercase error">Chapter II</h6>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="text-container">
+                          <div class="card-header-text">
+                            Beliving.
+                          </div>
+                          <h6 class="uppercase error">Chapter III</h6>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="text-container">
+                          <div class="card-header-text">
+                            Caring.
+                          </div>
+                          <h6 class="uppercase error">Chapter IV</h6>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="text-container">
+                          <div class="card-header-text">
+                            Treating.
+                          </div>
+                          <h6 class="uppercase error">Chapter V</h6>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="text-container">
+                          <div class="card-header-text">
+                            Surviving.
+                          </div>
+                          <h6 class="uppercase error">Chapter VI</h6>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="text-container">
+                          <div class="card-header-text">
+                            Remembering.
+                          </div>
+                          <h6 class="uppercase error">Chapter VII</h6>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="text-container">
+                          <div class="card-header-text">
+                            Testing.
+                          </div>
+                          <h6 class="uppercase error">Chapter VIII</h6>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                  <v-col cols="12" sm="12" md="6" lg="5" xl="4">
+                    <v-card flat class="mini-card text-center">
+                      <v-card-text>
+                        <div class="text-container">
+                          <div class="card-header-text">
+                            Advocacy.
+                          </div>
+                          <h6 class="uppercase error">Chapter IX</h6>
+                        </div>
+                      </v-card-text>
+                    </v-card>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-flex>
+          </v-row>
+        </div>
+      </section>
+    </main>
+  </div>
 </template>
 <script>
 import sharedMethodsMixin from "@/mixins/sharedMethodsMixin";
@@ -95,22 +147,39 @@ export default {
   directives: {
     mask,
   },
-  components: {
-  },
+  components: {},
   data() {
     return {
+      outthere: require("@/assets/img/out-there.png"),
+      graph: require("@/assets/img/stats.png"),
     };
   },
-  created() {
-  },
+  created() {},
   mounted() {},
   updated() {},
-  watch: {
-  },
-  methods: {
-  },
+  watch: {},
+  methods: {},
 };
 </script>
 
 <style scoped>
+h1 {
+  margin-top: -21px;
+}
+.mini-card h6 {
+  padding-top: 14px;
+}
+main .main-content {
+  width: 90%;
+  margin-left: unset;
+}
+.center-piece {
+  margin-right: auto;
+}
+.mini-card.v-card:hover,
+.mini-card.v-card:focus,
+.mini-card.v-card:active {
+  border: 1px solid #b5b5b5;
+  border-right: 0px;
+}
 </style>
