@@ -140,6 +140,7 @@ main .next {
     width: 210px;
     max-width: 210px;
     height: 100%;
+    color: #4D4D4D;
 }
 
 main .next {
@@ -148,6 +149,7 @@ main .next {
 
 main .main-content {
     width: 90%;
+    margin-left: 11px;
 }
 
 .error {
@@ -160,7 +162,6 @@ main .main-content {
 }
 
 .description {
-    flex-wrap: wrap;
     margin-top: -10px;
 }
 
@@ -177,7 +178,7 @@ main .main-content {
 
 h1 {
     font-weight: 800;
-    font-size: 64px;
+    font-size: 75px;
 }
 
 p {
@@ -186,6 +187,14 @@ p {
 
 .headings .v-icon {
     color: #B5072C;
+}
+
+.headings .remove-icon {
+    margin-top: -11px;
+}
+
+.headings .maximize-icon {
+    margin-top: 6px;
 }
 
 .headings {
@@ -204,7 +213,9 @@ h2 {
 }
 
 .graph {
-    max-width: 1345px;
+    max-width: 1120px;
+    margin-left: 210px;
+    margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 1295px) {
@@ -215,4 +226,18 @@ h2 {
         width: 100%;
         margin-left: 0px;
     }
+    .page-content>.graph {
+        margin-left: 186px;
+    }
+    .page-content>footer {
+        margin-left: 190px;
+    }
+}
+
+.social {
+    color: #A6A6A6;
+}
+
+footer {
+    margin-left: 210px;
 }

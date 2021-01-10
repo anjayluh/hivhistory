@@ -28,9 +28,9 @@
             </div>
             <div class="headings flex-column mt-2">
               <h1 class="intro">
-                <v-icon>remove</v-icon>
-                <v-icon>remove</v-icon>
-                <v-icon class="mt-3 mr-2">maximize</v-icon>
+                <v-icon class="remove-icon">remove</v-icon>
+                <v-icon class="remove-icon">remove</v-icon>
+                <v-icon class="maximize-icon mr-2">maximize</v-icon>
                 <span class="year error">1968.</span>
               </h1>
               <h2>
@@ -51,13 +51,18 @@
           <div class="icons">
             <v-icon>remove</v-icon>
             <v-icon>remove</v-icon>
-            <v-icon>arrow_forward</v-icon>
+            <v-icon>$vuetify.icons.East</v-icon>
           </div>
         </div>
       </main>
-      <div class="graph margin-auto">
+      <div class="graph">
         <v-img :src="graph" alt="graph"></v-img>
       </div>
+      <footer class="footer">
+        <i class="fa fa-facebook social mr-4"></i>
+        <i class="fa fa-twitter social mr-4"></i>
+        <i class="fa fa-group social"></i>
+      </footer>
     </div>
 </template>
 <script>
