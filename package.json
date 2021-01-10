@@ -10,6 +10,7 @@
         "build-staging": "set VUE_APP_ENV=staging && vue-cli-service build",
         "build-demo": "set VUE_APP_ENV=demo && vue-cli-service build",
         "build-production": "set VUE_APP_ENV=production && vue-cli-service build",
+        "start": "node server.js",
         "lint": "vue-cli-service lint",
         "test:unit": "vue-cli-service test:unit",
         "deploy": "msdeploy --verb sync --allowUntrusted true --source contentPath=%npm_package_config_sourcePath% --dest contentPath=%npm_package_config_destPath%,ComputerName=%npm_package_config_ComputerName%,UserName=%npm_package_config_UserName%,Password=%npm_package_config_Password%,includeAcls=False,authType=Basic",
