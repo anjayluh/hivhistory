@@ -243,6 +243,14 @@ h2 {
     .page-content>footer {
         margin-left: 190px;
     }
+    .gallery.top {
+        margin-bottom: 1.5rem;
+        margin-right: unset;
+    }
+    footer {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .social {

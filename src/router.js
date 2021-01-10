@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Timeline from '@/views/Timeline.vue'
+import TimelineDetails from '@/views/timeline/TimelineDetails.vue'
 import About from '@/views/About.vue'
 import Chapters from '@/views/Chapters.vue'
 import Quiz from '@/views/Quiz.vue'
@@ -13,6 +14,11 @@ export default new Router({
             name: 'timeline',
             path: '/',
             component: Timeline,
+            children: [{
+                name: 'timeline-details',
+                path: 'details/:title/:chapter',
+                component: TimelineDetails,
+            }]
         },
         {
             name: 'about',
